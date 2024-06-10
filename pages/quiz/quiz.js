@@ -83,7 +83,6 @@ function montarPergunta() {
                             <span>C</span>
                             ${alterarSinais(quiz.questions[pergunta-1].options[2])}
                         </div>
-
                     </label>
 
                     <label for="alternativa_d">
@@ -143,12 +142,12 @@ function finalizar() {
 
 function proximaPergunta() {
     montarPergunta()
-    adicionarEventoInput()
+    adicionarEventoInputs()
 }
 
-function adicionarEventoInput() {
-    const inputResposta = document.querySelectorAll(".alternativas input")
-    inputResposta.forEach(input => {
+function adicionarEventoInputs() {
+    const inputsResposta = document.querySelectorAll(".alternativas input")
+    inputsResposta.forEach(input => {
         input.addEventListener("click", guardarResposta)
 
         if (input.value === quiz.questions[pergunta-1].answer) {
@@ -161,7 +160,7 @@ async function iniciar() {
     alterarAssunto()
     await buscarPerguntas()
     montarPergunta()
-    adicionarEventoInput()
+    adicionarEventoInputs()
 }
 
 iniciar()
